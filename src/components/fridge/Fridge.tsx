@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { AppContext } from "../../context/Context";
 import { ingredientsList, IngredientsProps } from "../../data/dataIngredients";
+import { theme } from "../../theme/theme";
 
 const Fridge = () => {
+  const { ingredientsSelected, setIngredientsSelected } = useContext(AppContext);
+
+  function handleClickSelectIngredients(name: string, id: number, nbr: number) {
+    const ingredientsCopy = [...ingredientsSelected];
+
+    ingredientsCopy.push({
+      nom: name,
+      id: id,
+      nbr: nbr,
+    });
+
+    setIngredientsSelected(ingredientsCopy);
+    console.log(ingredientsSelected);
+  }
+
   return (
     <FridgeStyled>
       <h2>- Divers ingrédients -</h2>
       <div className="ingredientsList">
         {ingredientsList.map((e: IngredientsProps) => (
-          <div key={e.id} className="ingredient">
+          <div
+            key={e.id}
+            className="ingredient"
+            onClick={() => handleClickSelectIngredients(e.name, e.id, e.nbr)}
+          >
             <img src={e.img} alt="ingredient" />
             <p>{e.name}</p>
           </div>
@@ -29,7 +50,7 @@ const FridgeStyled = styled.div`
   align-items: center;
 
   h2 {
-    color: #7e7e7e;
+    color: ${theme.colors.title};
   }
 
   .ingredientsList {
