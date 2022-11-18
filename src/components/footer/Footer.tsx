@@ -56,6 +56,7 @@ const FooterStyled = styled.footer`
   span {
     margin-left: 20px;
     color: white;
+    font-weight: 600;
   }
 `;
 
