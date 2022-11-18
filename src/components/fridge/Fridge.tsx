@@ -7,17 +7,19 @@ import { theme } from "../../theme/theme";
 const Fridge = () => {
   const { ingredientsSelected, setIngredientsSelected } = useContext(AppContext);
 
-  function handleClickSelectIngredients(name: string, id: number, nbr: number) {
+  function handleClickSelectIngredients(name: string, id: number, nbr: number, img: string) {
     const ingredientsCopy = [...ingredientsSelected];
 
-    ingredientsCopy.push({
-      name: name,
-      id: id,
-      nbr: nbr + 1,
-    });
+    function upsert(array: any, element: any) {
+      // (1)
+      const i = array.findIndex((_element: any) => _element.id === element.id);
+      if (i > -1) array[i] = element; // (2)
+      else array.push(element);
+    }
+
+    upsert(ingredientsCopy, { name: name, id: id, nbr: nbr, img: img });
 
     setIngredientsSelected(ingredientsCopy);
-    console.log(ingredientsSelected);
   }
 
   return (
@@ -28,7 +30,7 @@ const Fridge = () => {
           <div
             key={e.id}
             className="ingredient"
-            onClick={() => handleClickSelectIngredients(e.name, e.id, e.nbr)}
+            onClick={() => handleClickSelectIngredients(e.name, e.id, e.nbr, e.img)}
           >
             <img src={e.img} alt="ingredient" />
             <p>{e.name}</p>

@@ -7,14 +7,26 @@ import { IngredientsProps } from "../../data/dataIngredients";
 const MyListIngredients = () => {
   const { ingredientsSelected, setIngredientsSelected } = useContext(AppContext);
 
+  function handleClickDeleteItem(id: any) {
+    const copyList = [...ingredientsSelected];
+    const listIngredientsUpdate = copyList.filter((f: any) => f.id !== id);
+
+    setIngredientsSelected(listIngredientsUpdate);
+  }
+
   return (
     <MyListIngredientsStyled>
       <h2>Mes choix d'ingrédients:</h2>
-      {ingredientsSelected.map((e: IngredientsProps) => (
-        <p key={e.id}>
-          {e.name} <i className="fa-solid fa-x"></i> <span>{e.nbr}</span>
-        </p>
-      ))}
+      <div className="divList">
+        {ingredientsSelected
+          .filter((f: IngredientsProps) => f.name === f.name)
+          .map((e: IngredientsProps, i: any) => (
+            <div key={i} onClick={() => handleClickDeleteItem(e.id)}>
+              <img src={e.img} alt="ingredients" />
+              <i className="fa-solid fa-x"></i>
+            </div>
+          ))}
+      </div>
     </MyListIngredientsStyled>
   );
 };
@@ -26,18 +38,31 @@ const MyListIngredientsStyled = styled.div`
     font-size: 20px;
   }
 
-  p {
-    font-size: 18px;
-    font-weight: 600;
+  .divList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 
-    i {
-      font-size: 8px;
-      color: gray;
-    }
+    div {
+      img {
+        height: 40px;
+        margin: 22px;
+      }
 
-    span {
-      font-size: 15px;
-      font-weight: 400;
+      i {
+        position: relative;
+        top: -50px;
+        left: -20px;
+        background-color: black;
+        color: white;
+        border-radius: 50%;
+        padding: 3px;
+        font-size: 8px;
+        text-align: center;
+        height: 9px;
+        width: 9px;
+        cursor: pointer;
+      }
     }
   }
 `;
