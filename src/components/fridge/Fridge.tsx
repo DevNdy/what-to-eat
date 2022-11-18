@@ -11,9 +11,9 @@ const Fridge = () => {
     const ingredientsCopy = [...ingredientsSelected];
 
     ingredientsCopy.push({
-      nom: name,
+      name: name,
       id: id,
-      nbr: nbr,
+      nbr: nbr + 1,
     });
 
     setIngredientsSelected(ingredientsCopy);
