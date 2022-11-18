@@ -39,7 +39,7 @@ const FooterStyled = styled.footer`
 
   p {
     color: white;
-    margin-right: 20px;
+    margin-right: 50px;
     font-style: italic;
   }
 
@@ -54,7 +54,7 @@ const FooterStyled = styled.footer`
   }
 
   span {
-    margin-left: 20px;
+    margin-left: 50px;
     color: white;
     font-weight: 600;
   }
