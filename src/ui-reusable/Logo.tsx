@@ -5,7 +5,7 @@ const Logo = () => {
   return <LogoStyled>What to eat?</LogoStyled>;
 };
 
-const LogoStyled = styled.h3`
+const LogoStyled = styled.h1`
   font-family: "Montez", cursive;
   font-size: 55px;
   text-decoration: underline 3px;
