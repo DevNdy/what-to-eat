@@ -10,7 +10,6 @@ const MyListIngredients = () => {
   function handleClickDeleteItem(id: any) {
     const copyList = [...ingredientsSelected];
     const listIngredientsUpdate = copyList.filter((f: any) => f.id !== id);
-
     setIngredientsSelected(listIngredientsUpdate);
   }
 
