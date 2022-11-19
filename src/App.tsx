@@ -21,7 +21,7 @@ function App() {
 }
 
 const AppStyled = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,6 +32,12 @@ const AppStyled = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+  }
+
+  @media (max-width: 1030px) {
+    .bodyApp {
+      flex-direction: column;
+    }
   }
 `;
 

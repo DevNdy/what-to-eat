@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { IngredientsProps } from "../data/dataIngredients";
 
 interface ChildrenProps {
   children: React.ReactNode;

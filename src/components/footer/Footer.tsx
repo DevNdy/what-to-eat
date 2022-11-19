@@ -1,11 +1,10 @@
-import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme/theme";
 
 const Footer = () => {
   return (
     <FooterStyled>
-      <span>#React #Typescript</span>
+      <span>React & Ts</span>
       <div>
         <a href="https://github.com/DevNdy" target="_blank" rel="noreferrer">
           <i className="fa-brands fa-github iGitHub"></i>
@@ -21,7 +20,7 @@ const Footer = () => {
           <i className="fa-brands fa-twitter iTwitter"></i>
         </a>
       </div>
-      <p>réalisé pars @DevNdy</p>
+      <p>@DevNdy</p>
     </FooterStyled>
   );
 };
@@ -57,6 +56,26 @@ const FooterStyled = styled.footer`
     margin-left: 50px;
     color: white;
     font-weight: 600;
+  }
+
+  @media (max-width: 750px) {
+    right: 0;
+    left: 0;
+    p {
+      margin-right: 10px;
+      font-size: 13px;
+    }
+
+    i {
+      font-size: 18px;
+      margin-left: 12px;
+    }
+
+    span {
+      margin-left: 10px;
+      font-weight: 400;
+      font-size: 13px;
+    }
   }
 `;
 

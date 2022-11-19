@@ -64,6 +64,32 @@ const MyListIngredientsStyled = styled.div`
       }
     }
   }
+  @media (max-width: 1280px) {
+    .divList {
+      div {
+        img {
+          height: 30px;
+          margin: 15px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1030px) {
+    margin-left: 0;
+    h2 {
+      text-align: center;
+    }
+    .divList {
+      margin: 20px 0 0 25px;
+      div {
+        img {
+          height: 26px;
+          margin: 18px;
+        }
+      }
+    }
+  }
 `;
 
 export default MyListIngredients;

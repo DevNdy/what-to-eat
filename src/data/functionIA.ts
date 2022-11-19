@@ -1,8 +1,14 @@
 import { receipts } from "./receiptsData";
+import { IngredientsProps } from "./dataIngredients";
 
-export function handleClickGenerateDish(ingredientsSelect: string[], setter: any) {
+export function handleClickGenerateDish(
+  ingredientsSelect: IngredientsProps[],
+  setter: (newSate: string) => void
+) {
   const copyIngredients = [...ingredientsSelect];
-  const filterNameIngredients = copyIngredients.map((e: any) => e.name).sort();
+  console.log(copyIngredients);
+
+  const filterNameIngredients = copyIngredients.map((e: IngredientsProps) => e.name).sort();
 
   // one ingredient:
   if (filterNameIngredients[0] === "Oeuf" && filterNameIngredients.length < 2) {
@@ -97,6 +103,18 @@ export function handleClickGenerateDish(ingredientsSelect: string[], setter: any
     filterNameIngredients.length < 3
   ) {
     setter("Champignon cuit avec tomate cuite ? à tester");
+  } else if (
+    filterNameIngredients[0] === "Fromage" &&
+    filterNameIngredients[1] === "Pomme de terre" &&
+    filterNameIngredients.length < 3
+  ) {
+    setter("Pomme de terre vapeur avec frommage fondu, tu me donnes faim.");
+  } else if (
+    filterNameIngredients[0] === "Bacon" &&
+    filterNameIngredients[1] === "Pâte" &&
+    filterNameIngredients.length < 3
+  ) {
+    setter("Pâte au bacon.");
   }
   //----------------------------
   // three ingredients:
@@ -132,6 +150,14 @@ export function handleClickGenerateDish(ingredientsSelect: string[], setter: any
     filterNameIngredients.length < 5
   ) {
     setter("Pourquoi pas une salade?...");
+  } else if (
+    filterNameIngredients[0] === "Bacon" &&
+    filterNameIngredients[1] === "Champignon" &&
+    filterNameIngredients[2] === "Salade" &&
+    filterNameIngredients[3] === "Tomate" &&
+    filterNameIngredients.length < 5
+  ) {
+    setter("Une bonne salade, surtout si on est le soir..");
   }
   //----------------------------
   // five ingredients:
@@ -161,6 +187,6 @@ export function handleClickGenerateDish(ingredientsSelect: string[], setter: any
   } else if (filterNameIngredients.length > 8) {
     setter(receipts.unavailable);
   } else {
-    setter("Je n'ai rien à te proposer malheuresement...");
+    setter("Cette composition ne m'inspire pas... Désolé");
   }
 }

@@ -21,6 +21,17 @@ const SectionReceiptsStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: 1280px) {
+    height: 500px;
+    width: 400px;
+  }
+
+  @media (max-width: 1030px) {
+    margin: 20px 0 60px 0;
+    height: 490px;
+    width: 340px;
+  }
 `;
 
 export default SectionReceipts;

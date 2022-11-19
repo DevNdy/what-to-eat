@@ -40,12 +40,7 @@ export const ingredientsList = [
     id: 2,
     nbr: 0,
   },
-  {
-    name: "Boulette de viande",
-    img: boulette,
-    id: 3,
-    nbr: 0,
-  },
+
   {
     name: "Carotte",
     img: carotte,
@@ -110,6 +105,12 @@ export const ingredientsList = [
     name: "Salade",
     img: salade,
     id: 14,
+    nbr: 0,
+  },
+  {
+    name: "Boulette de viande",
+    img: boulette,
+    id: 3,
     nbr: 0,
   },
 ];
