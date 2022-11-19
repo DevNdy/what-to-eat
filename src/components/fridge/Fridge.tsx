@@ -64,6 +64,7 @@ const FridgeStyled = styled.div`
     flex-wrap: wrap;
 
     .ingredient {
+      height: 80px;
       margin-left: 50px;
       display: flex;
       flex-direction: column;

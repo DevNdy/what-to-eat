@@ -7,20 +7,19 @@ import { IngredientsProps } from "../../data/dataIngredients";
 const MyListIngredients = () => {
   const { ingredientsSelected, setIngredientsSelected } = useContext(AppContext);
 
-  function handleClickDeleteItem(id: any) {
+  function handleClickDeleteItem(id: number) {
     const copyList = [...ingredientsSelected];
     const listIngredientsUpdate = copyList.filter((f: any) => f.id !== id);
-
     setIngredientsSelected(listIngredientsUpdate);
   }
 
   return (
     <MyListIngredientsStyled>
-      <h2>Mes choix d'ingrédients:</h2>
+      <h2>Mes ingrédients choisis:</h2>
       <div className="divList">
         {ingredientsSelected
           .filter((f: IngredientsProps) => f.name === f.name)
-          .map((e: IngredientsProps, i: any) => (
+          .map((e: IngredientsProps, i: number) => (
             <div key={i} onClick={() => handleClickDeleteItem(e.id)}>
               <img src={e.img} alt="ingredients" />
               <i className="fa-solid fa-x"></i>
@@ -32,7 +31,7 @@ const MyListIngredients = () => {
 };
 
 const MyListIngredientsStyled = styled.div`
-  margin: 20px;
+  margin-left: 20px;
   h2 {
     color: ${theme.colors.title};
     font-size: 20px;
